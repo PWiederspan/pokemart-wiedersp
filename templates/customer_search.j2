@@ -1,0 +1,60 @@
+<!-- Search Bar -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-  
+        scale=1">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mart_info.css') }}">
+    <body>
+    <!-- Main Container -->
+    <div class="container"> 
+    <!-- Navigation -->
+    <header> <a href="">
+        <h4 class="logo">POKÉ MART&nbsp;</h4>
+        </a>
+        <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="customers.html">CUSTOMERS</a></li>
+            <li><a href="items.html">ITEMS&nbsp;</a></li>
+            <li> <a href="orders.html">ORDERS&nbsp;</a></li>
+            <li> <a href="trades.html">TRADES</a></li>
+        </ul>
+        </nav>
+    </header>
+  <section class="myHeader" id="myHeader">
+    <center>
+	  <h2 class="myHeader_header">Customers</h2>
+      <h3>Enter Customer Name to see a specific Customer, or "all" to see every Customer</h3>
+  </section>
+        <form class="myHeader_header" method="post" action="" 
+         style="margin:auto;max-width:600px">
+            <input type="text" placeholder="Search by Customer Name" name="customer">
+            <button type="submit">Search<i class="fa fa-search"></i>
+            </button>
+        </form>
+        <p></p>
+        <center>
+    <table class=database_table>
+    <thead>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Phone Number</th>
+      <th >Badges</th>
+      <th> Gender</th>
+    </thead>
+    <tbody>
+      {% for val in data %}
+      <tr>
+        <td>#{{val['Customer_id']}}
+        <td>{{val['Name']}}
+        <td>{{val['Phone_number']}}
+        <td>{{val['Badges']}}
+        <td>{{val['Gender']}}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+        </center>
+    </body>
+</html>
